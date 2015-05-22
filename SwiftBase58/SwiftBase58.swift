@@ -26,23 +26,37 @@ public func encode(b: [uint8]) -> String {
 func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
     var answer = IntBig(x: 0)
     var j = IntBig(x: 1)
-    
-    //for i in stride(from: count(b)-1, through: 0, by:-1) {
-    for var i = count(b)-1 ; i <= 0 ; i-- {
-        let tmp: Int = String.indexAny(alphabet, chars: b)
+
+    for ch in reverse(b) {
+        let tmp: Int = String.indexAny(alphabet, chars: String(ch))
+            println("tmp = \(tmp)")
         if tmp == -1 {
             return []
         }
         
         let idx = IntBig(x: tmp)
-        let tmp1 = IntBig(x: 0)
+        var tmp1 = IntBig(x: 0)
         //tmp1 = j * idx
-        j = tmp1.mul(j, y: idx)
+        println("pre tmp1 = \(tmp1.string())")
+        tmp1 = tmp1.mul(j, y: idx)
+        println("post tmp1 = \(tmp1.string())")
         answer = answer.add(answer, y: tmp1)
         //answer += tmp1
         //j *= idx
         j.mul(j, y: bigRadix)
     }
+    
+    /// Remove leading 1's
+    // Find the first character that isn't 1
+    let bArr = Array(b)
+    let zChar = Array(alphabet)[0]
+    var nz = 0
+    //    for numZ in 0..<count(b) {
+    for nz = 0 ; nz < count(b) ; nz++ {
+        if bArr[nz] != zChar { break }
+    }
+    println("numZ = \(nz)")
+
     println("The answer \(answer.string())")
     return []
 }
