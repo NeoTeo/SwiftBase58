@@ -15,11 +15,11 @@ let FlickrAlphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ
 let bigRadix = IntBig(x: 58)
 let bigZero = IntBig(x: 0)
 
-func decode(b: String) -> [uint8] {
+public func decode(b: String) -> [uint8] {
     return decodeAlphabet(b, BTCAlphabet)
 }
 
-func encode(b: [uint8]) -> String {
+public func encode(b: [uint8]) -> String {
     return encodeAlphabet(b, BTCAlphabet)
 }
 
@@ -37,12 +37,13 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
         let idx = IntBig(x: tmp)
         let tmp1 = IntBig(x: 0)
         //tmp1 = j * idx
-        tmp1.mul(j, y: idx)
-        answer.add(answer, y: tmp1)
+        j = tmp1.mul(j, y: idx)
+        answer = answer.add(answer, y: tmp1)
         //answer += tmp1
         //j *= idx
         j.mul(j, y: bigRadix)
     }
+    println("The answer \(answer.string())")
     return []
 }
 

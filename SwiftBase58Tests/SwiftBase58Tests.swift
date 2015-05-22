@@ -8,6 +8,8 @@
 
 import Cocoa
 import XCTest
+import SwiftBase58
+//import SwiftGMP
 
 class SwiftBase58Tests: XCTestCase {
     
@@ -23,6 +25,8 @@ class SwiftBase58Tests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
+        decode("Arsenator")
+
         XCTAssert(true, "Pass")
     }
     
