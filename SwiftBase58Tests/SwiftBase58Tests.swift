@@ -25,7 +25,8 @@ class SwiftBase58Tests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
-        decode("Arsenator")
+        let d = decode("Arsenator")
+        println("decode = \(d)")
 
         XCTAssert(true, "Pass")
     }

@@ -29,7 +29,7 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
 
     for ch in reverse(b) {
         let tmp: Int = String.indexAny(alphabet, chars: String(ch))
-            println("tmp = \(tmp)")
+
         if tmp == -1 {
             return []
         }
@@ -47,17 +47,15 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
     let bArr = Array(b)
     let zChar = Array(alphabet)[0]
     var nz = 0
-    //    for numZ in 0..<count(b) {
     for nz = 0 ; nz < count(b) ; nz++ {
         if bArr[nz] != zChar { break }
     }
     
-//    let tmval = answer.bytes
-    println("numZ = \(nz)")
+    let tmpval = answer.bytes()
+    var val = [uint8](count: nz, repeatedValue: 0)
+    val += tmpval
 
-    println("The answer \(answer.string())")
-    //let val
-    return []
+    return val
 }
 
 func encodeAlphabet(b: [uint8], alphabet: String) -> String {
