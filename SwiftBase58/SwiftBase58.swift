@@ -36,13 +36,9 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
         
         let idx = IntBig(x: tmp)
         var tmp1 = IntBig(x: 0)
-        //tmp1 = j * idx
-        println("pre tmp1 = \(tmp1.string())")
         tmp1 = tmp1.mul(j, y: idx)
-        println("post tmp1 = \(tmp1.string())")
+        
         answer = answer.add(answer, y: tmp1)
-        //answer += tmp1
-        //j *= idx
         j.mul(j, y: bigRadix)
     }
     
@@ -55,9 +51,12 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
     for nz = 0 ; nz < count(b) ; nz++ {
         if bArr[nz] != zChar { break }
     }
+    
+//    let tmval = answer.bytes
     println("numZ = \(nz)")
 
     println("The answer \(answer.string())")
+    //let val
     return []
 }
 
