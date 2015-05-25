@@ -24,9 +24,12 @@ class SwiftGMPTests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
-        var b = IntBig(x: 246375425603637729)//.newIntBig(58)
-        var c = IntBig(x: 58)
-
+        var b = IntBig(246375425603637729)//.newIntBig(58)
+        var c = IntBig(58)
+println("b: \(b.string())")
+        
+        XCTAssert(b.cmp(c) != 0, "compare error")
+        
         println("Bytes: \(b.bytes())")
         
         var d = b.mul(b, y: c)
@@ -34,8 +37,12 @@ class SwiftGMPTests: XCTestCase {
         
         d = b.add(b, y: c)
         println("add: \(d.string())")
-        
-        XCTAssert(true, "Pass")
+        var e = IntBig(69)
+        e = IntBig(42)
+        println("e = \(e.string())")
+        var n = e.getInt64()
+        println("n = \(n!)")
+        XCTAssert(n == 42, "Pass")
     }
     
     func testPerformanceExample() {

@@ -12,8 +12,8 @@ import SwiftGMP
 let BTCAlphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
 let FlickrAlphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
 
-let bigRadix = IntBig(x: 58)
-let bigZero = IntBig(x: 0)
+let bigRadix = IntBig(58)
+let bigZero = IntBig(0)
 
 public func decode(b: String) -> [uint8] {
     return decodeAlphabet(b, BTCAlphabet)
@@ -24,8 +24,8 @@ public func encode(b: [uint8]) -> String {
 }
 
 func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
-    var answer = IntBig(x: 0)
-    var j = IntBig(x: 1)
+    var answer = IntBig(0)
+    var j = IntBig(1)
 
     for ch in reverse(b) {
         let tmp: Int = String.indexAny(alphabet, chars: String(ch))
@@ -34,8 +34,8 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
             return []
         }
         
-        let idx = IntBig(x: tmp)
-        var tmp1 = IntBig(x: 0)
+        let idx = IntBig(tmp)
+        var tmp1 = IntBig(0)
         tmp1 = tmp1.mul(j, y: idx)
         
         answer = answer.add(answer, y: tmp1)
@@ -58,8 +58,29 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
     return val
 }
 
-func encodeAlphabet(b: [uint8], alphabet: String) -> String {
-        return "hola"
+func encodeAlphabet(byteSlice: [uint8], alphabet: String) -> String {
+    var bytesAsIntBig = IntBig(buffer: byteSlice)
+    let byteAlphabet = [uint8](alphabet.utf8)
+    
+    var answer = [uint8](count: byteSlice.count*136/100, repeatedValue: 0)
+    
+    while bytesAsIntBig.cmp(bigZero) > 0 {
+        let mod = IntBig()
+        let (quotient, modulus) = bytesAsIntBig.divMod(bytesAsIntBig, y: bigRadix, m: mod)
+        
+        bytesAsIntBig = quotient
+        
+        // Make the String into an array of characters.
+        answer.insert(byteAlphabet[Int(modulus.getInt64()!)], atIndex: 0)
+    }
+    
+    // leading zero bytes
+    for ch in byteSlice {
+        if ch != 0 { break }
+        answer.insert(byteAlphabet[0], atIndex: 0)
+    }
+    
+    return String(bytes: answer, encoding: NSUTF8StringEncoding)!
 }
 
 
