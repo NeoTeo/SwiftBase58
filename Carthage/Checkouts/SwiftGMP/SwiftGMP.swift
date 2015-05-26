@@ -46,7 +46,7 @@ extension IntBig {
         
     }
 
-    public init(buffer: [uint8]) {
+    public init(_ buffer: [uint8]) {
         self.init(0)
         var b = buffer
         if buffer.count != 0 {
@@ -74,18 +74,18 @@ extension IntBig {
 
     
     // Int64
-    public func getInt64() -> Int64? {
+    public func getInt64() -> Int? {
         var oldIntBig = self
         
         if oldIntBig.inited == false { return nil }
         
         if __gmpz_fits_slong_p(&oldIntBig.i) != 0 {
-            return Int64(__gmpz_get_si(&oldIntBig.i))
+            return Int(__gmpz_get_si(&oldIntBig.i))
         }
         // Undefined result if > 64 return nil
         if oldIntBig.bitLen() > 64 { return nil }
         
-        var newInt64 = Int64()
+        var newInt64 = Int()
         __gmpz_export(&newInt64, nil, -1, 8, 0, 0, &oldIntBig.i)
         if oldIntBig.sign() < 0 {
             newInt64 = -newInt64

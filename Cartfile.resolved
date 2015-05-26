@@ -1,1 +1,2 @@
-github "NeoTeo/SwiftGMP" "v0.3.5"
+github "NeoTeo/SwiftGMP" "v0.3.6"
+github "NeoTeo/SwiftHex" "v0.2"

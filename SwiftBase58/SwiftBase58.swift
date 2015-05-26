@@ -28,18 +28,21 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
     var j = IntBig(1)
 
     for ch in reverse(b) {
-        let tmp: Int = String.indexAny(alphabet, chars: String(ch))
-
-        if tmp == -1 {
+        // Find the index of the letter ch in the alphabet.
+        let charRange = alphabet.rangeOfString(String(ch))
+        let letterIndex = distance(alphabet.startIndex, charRange!.startIndex)
+        
+        if letterIndex == -1 {
             return []
         }
         
-        let idx = IntBig(tmp)
+        let idx = IntBig(letterIndex)
         var tmp1 = IntBig(0)
         tmp1 = tmp1.mul(j, y: idx)
         
         answer = answer.add(answer, y: tmp1)
-        j.mul(j, y: bigRadix)
+        //FIXME: Change calls to IntBig to be functions, not methods.
+        j = j.mul(j, y: bigRadix)
     }
     
     /// Remove leading 1's
@@ -59,10 +62,10 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
 }
 
 func encodeAlphabet(byteSlice: [uint8], alphabet: String) -> String {
-    var bytesAsIntBig = IntBig(buffer: byteSlice)
+    var bytesAsIntBig = IntBig(byteSlice)
     let byteAlphabet = [uint8](alphabet.utf8)
     
-    var answer = [uint8](count: byteSlice.count*136/100, repeatedValue: 0)
+    var answer = [uint8]()//(count: byteSlice.count*136/100, repeatedValue: 0)
     
     while bytesAsIntBig.cmp(bigZero) > 0 {
         let mod = IntBig()
@@ -71,7 +74,7 @@ func encodeAlphabet(byteSlice: [uint8], alphabet: String) -> String {
         bytesAsIntBig = quotient
         
         // Make the String into an array of characters.
-        answer.insert(byteAlphabet[Int(modulus.getInt64()!)], atIndex: 0)
+        answer.insert(byteAlphabet[modulus.getInt64()!], atIndex: 0)
     }
     
     // leading zero bytes
@@ -81,34 +84,4 @@ func encodeAlphabet(byteSlice: [uint8], alphabet: String) -> String {
     }
     
     return String(bytes: answer, encoding: NSUTF8StringEncoding)!
-}
-
-
-extension String {
-    
-    static func indexAny(s: String, chars: String) -> String.Index? {
-        if count(chars) > 0 {
-            for i in indices(s) {
-                for m in chars {
-                    if s[i] == m {
-                        return i
-                    }
-                }
-            }
-        }
-        return nil
-    }
-    
-    static func indexAny(s: String, chars: String) -> Int {
-        if count(chars) > 0 {
-            for var i = 0 ; i < count(s) ; i++ {
-                for m in chars {
-                    if Array(s)[i] == m {
-                        return i
-                    }
-                }
-            }
-        }
-        return -1
-    }
 }
