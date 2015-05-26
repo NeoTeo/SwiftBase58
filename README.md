@@ -1,6 +1,6 @@
 # Swift base58
 
-This is a port of go-base58 https://github.com/jbenet/go-base58.git to provide a native Swift implementation for SwiftMultihash. https://github.com/NeoTeo/SwiftMultihash
+This is a port of go-base58 https://github.com/jbenet/go-base58.git to provide a native Swift implementation of base58 for SwiftMultihash (https://github.com/NeoTeo/SwiftMultihash)
 
 ## Installation
 
