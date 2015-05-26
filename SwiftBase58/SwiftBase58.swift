@@ -10,7 +10,7 @@ import Foundation
 import SwiftGMP
 
 let BTCAlphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
-let FlickrAlphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
+
 
 let bigRadix = IntBig(58)
 let bigZero = IntBig(0)
@@ -29,20 +29,20 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
 
     for ch in reverse(b) {
         // Find the index of the letter ch in the alphabet.
-        let charRange = alphabet.rangeOfString(String(ch))
-        let letterIndex = distance(alphabet.startIndex, charRange!.startIndex)
-        
-        if letterIndex == -1 {
+        if let charRange = alphabet.rangeOfString(String(ch)) {
+            let letterIndex = distance(alphabet.startIndex, charRange.startIndex)
+            let idx = IntBig(letterIndex)
+            var tmp1 = IntBig(0)
+            
+            tmp1 = SwiftGMP.mul(j, idx)
+            
+            answer = SwiftGMP.add(answer, tmp1)
+            //FIXME: Change calls to IntBig to be functions, not methods.
+            j = SwiftGMP.mul(j, bigRadix)
+        } else {
+            
             return []
         }
-        
-        let idx = IntBig(letterIndex)
-        var tmp1 = IntBig(0)
-        tmp1 = tmp1.mul(j, y: idx)
-        
-        answer = answer.add(answer, y: tmp1)
-        //FIXME: Change calls to IntBig to be functions, not methods.
-        j = j.mul(j, y: bigRadix)
     }
     
     /// Remove leading 1's
@@ -54,7 +54,7 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
         if bArr[nz] != zChar { break }
     }
     
-    let tmpval = answer.bytes()
+    let tmpval = SwiftGMP.bytes(answer)
     var val = [uint8](count: nz, repeatedValue: 0)
     val += tmpval
 
@@ -67,14 +67,14 @@ func encodeAlphabet(byteSlice: [uint8], alphabet: String) -> String {
     
     var answer = [uint8]()//(count: byteSlice.count*136/100, repeatedValue: 0)
     
-    while bytesAsIntBig.cmp(bigZero) > 0 {
+    while SwiftGMP.cmp(bytesAsIntBig, bigZero) > 0 {
         let mod = IntBig()
-        let (quotient, modulus) = bytesAsIntBig.divMod(bytesAsIntBig, y: bigRadix, m: mod)
+        let (quotient, modulus) = SwiftGMP.divMod(bytesAsIntBig, bigRadix, mod)
         
         bytesAsIntBig = quotient
         
         // Make the String into an array of characters.
-        answer.insert(byteAlphabet[modulus.getInt64()!], atIndex: 0)
+        answer.insert(byteAlphabet[SwiftGMP.getInt64(modulus)!], atIndex: 0)
     }
     
     // leading zero bytes

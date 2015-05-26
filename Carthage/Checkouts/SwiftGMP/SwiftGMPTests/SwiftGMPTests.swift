@@ -26,21 +26,21 @@ class SwiftGMPTests: XCTestCase {
         // This is an example of a functional test case.
         var b = IntBig(246375425603637729)//.newIntBig(58)
         var c = IntBig(58)
-println("b: \(b.string())")
+println("b: \(SwiftGMP.string(b))")
         
-        XCTAssert(b.cmp(c) != 0, "compare error")
+        XCTAssert(SwiftGMP.cmp(b,c) != 0, "compare error")
         
-        println("Bytes: \(b.bytes())")
+        println("Bytes: \(SwiftGMP.bytes(b))")
         
-        var d = b.mul(b, y: c)
-        println("mul: \(d.string())")
+        var d = SwiftGMP.mul(b, c)
+        println("mul: \(SwiftGMP.string(d))")
         
-        d = b.add(b, y: c)
-        println("add: \(d.string())")
+        d = SwiftGMP.add(b, c)
+        println("add: \(SwiftGMP.string(d))")
         var e = IntBig(69)
         e = IntBig(42)
-        println("e = \(e.string())")
-        var n = e.getInt64()
+        println("e = \(SwiftGMP.string(e))")
+        var n = SwiftGMP.getInt64(e)
         println("n = \(n!)")
         XCTAssert(n == 42, "Pass")
     }
