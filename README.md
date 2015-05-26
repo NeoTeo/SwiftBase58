@@ -14,6 +14,8 @@ Then run `carthage update`.
 
 You will then need to add SwiftBase58.framework to your Xcode project.
 
+Additional dependencies SwiftGMP.framework and SwiftHex.framework will be fetched when running the carthage update.
+
 For more information on how to install via Carthage see the [README][carthage-installation]
 
 [carthage-installation]: https://github.com/Carthage/Carthage#adding-frameworks-to-an-application
