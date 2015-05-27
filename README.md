@@ -14,11 +14,11 @@ Then run `carthage update`.
 
 ##### You will then need to add SwiftBase58.framework to your Xcode project:
 
-1) Select your target's General tab.
-2) Add the framework from the Carthage/Build/Mac directory in your project root,
- either by dropping the SwiftBase58.framework file directly onto the "Embedded Binaries" or by clicking
- the + and navigating to it.
-3) In case of a code signing error, select the target's Build Settings tab make sure the "Code Signing Identity" is either a valid identity or "Don't Code Sign".
+- Select your target's General tab.
+
+- Add the framework from the Carthage/Build/Mac directory in your project root,
+ either by dropping the SwiftBase58.framework file directly onto the "Embedded Binaries" or by clicking the + and navigating to it.  
+- In case of a code signing error, select the target's Build Settings tab make sure the "Code Signing Identity" is either a valid identity or "Don't Code Sign".
 Additional dependencies SwiftGMP.framework and SwiftHex.framework will be fetched when running the carthage update.
 
 For more information on how to install via Carthage see the [README][carthage-installation]
