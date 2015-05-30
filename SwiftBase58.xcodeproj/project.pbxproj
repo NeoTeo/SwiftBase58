@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AB07C0A01B0B735000C88381 /* SwiftBase58.h in Headers */ = {isa = PBXBuildFile; fileRef = AB07C09F1B0B735000C88381 /* SwiftBase58.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB07C0A61B0B735000C88381 /* SwiftBase58.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB07C09A1B0B735000C88381 /* SwiftBase58.framework */; };
 		AB07C0AD1B0B735000C88381 /* SwiftBase58Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB07C0AC1B0B735000C88381 /* SwiftBase58Tests.swift */; };
 		AB07C0B71B0B737000C88381 /* SwiftBase58.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB07C0B61B0B737000C88381 /* SwiftBase58.swift */; };
@@ -56,7 +55,6 @@
 /* Begin PBXFileReference section */
 		AB07C09A1B0B735000C88381 /* SwiftBase58.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftBase58.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB07C09E1B0B735000C88381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB07C09F1B0B735000C88381 /* SwiftBase58.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftBase58.h; sourceTree = "<group>"; };
 		AB07C0A51B0B735000C88381 /* SwiftBase58Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBase58Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB07C0AB1B0B735000C88381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB07C0AC1B0B735000C88381 /* SwiftBase58Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBase58Tests.swift; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				AB07C0B61B0B737000C88381 /* SwiftBase58.swift */,
-				AB07C09F1B0B735000C88381 /* SwiftBase58.h */,
 				AB07C09D1B0B735000C88381 /* Supporting Files */,
 			);
 			path = SwiftBase58;
@@ -151,7 +148,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB07C0A01B0B735000C88381 /* SwiftBase58.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
