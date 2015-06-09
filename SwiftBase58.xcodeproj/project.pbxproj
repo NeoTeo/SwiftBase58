@@ -198,7 +198,8 @@
 		AB07C0911B0B735000C88381 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Teo;
 				TargetAttributes = {
 					AB07C0991B0B735000C88381 = {
@@ -293,6 +294,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -374,6 +376,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Checkouts/SwiftGMP/GMPLib";
+				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -398,6 +401,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Checkouts/SwiftGMP/GMPLib";
+				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -422,6 +426,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftGMP/GMPLib",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -441,6 +446,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Checkouts/SwiftGMP/GMPLib",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

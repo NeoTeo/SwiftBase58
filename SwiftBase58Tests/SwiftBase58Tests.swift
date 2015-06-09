@@ -67,7 +67,7 @@ class SwiftBase58Tests: XCTestCase {
     
     func testEncodeBase58() {
 
-        for (testNum, (inString, outString)) in enumerate(stringTests) {
+        for (testNum, (inString, outString)) in stringTests.enumerate() {
         
             let byteStr = [uint8](inString.utf8)
             let result = SwiftBase58.encode(byteStr)
@@ -77,7 +77,7 @@ class SwiftBase58Tests: XCTestCase {
     }
     
     func testDecodeBase58() {
-        for (testNum, (inString, outString)) in enumerate(hexTests) {
+        for (testNum, (inString, outString)) in hexTests.enumerate() {
             
             if let stringBuf = SwiftHex.decodeString(inString) {
             
@@ -90,7 +90,7 @@ class SwiftBase58Tests: XCTestCase {
     }
     
     func testInvalidDecodeBase58() {
-        for (testNum, (inString, outString)) in enumerate(invalidStringTests) {
+        for (testNum, (inString, outString)) in invalidStringTests.enumerate() {
             let result = SwiftBase58.decode(inString)
             let resString = String(bytes: result, encoding: NSUTF8StringEncoding)!
             
@@ -102,15 +102,15 @@ class SwiftBase58Tests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         let d = decode("Arsenator")
-        println("decode = \(d)")
+        print("decode = \(d)")
         let dat: [uint8] = [49,50,51,52,53,57,56,55,54,48]
         let e = SwiftBase58.encode(dat)
-        println("encode = \(e)")
+        print("encode = \(e)")
         XCTAssert(true, "Pass")
     }
     
     func testPerformanceDecodeShort() {
-        var input = "1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"
+        let input = "1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L"
         self.measureBlock() {
             // Put the code you want to measure the time of here.
             SwiftBase58.decode(input)
@@ -126,7 +126,7 @@ class SwiftBase58Tests: XCTestCase {
     }
 
     func testPerformanceDecodeOneKilo() {
-        var input = "3GimCffBLAHhXMCeNxX2nST6dBem9pbUi3KVKykW73LmewcFtMk9oh9eNPdNR2eSzNqp7Z3E21vrWUkGHzJ7w2yqDUDJ4LKo1w5D6aafZ4SUoNQyrSVxyVG3pwgoZkKXMZVixRyiPZVUpekrsTvZuUoW7mB6BQgDTXbDuMMSRoNR7yiUTKpgwTD61DLmhNZopNxfFjn4avpYPgzsTB94iWueq1yU3EoruWCUMvp6fc1CEbDrZY3pkx9oUbUaSMC37rruBKSSGHh1ZE3XK3kQXBCFraMmUQf8dagofMEg5aTnDiLAZjLyWJMdnQwW1FqKKztP8KAQS2JX8GCCfc68KB4VGf2CfEGXtaapnsNWFrHuWi7Wo5vqyuHd21zGm1u5rsiR6tKNCsFC4nzf3WUNxJNoZrDSdF9KERqhTWWmmcM4qdKRCtBWKTrs1DJD2oiK6BK9BgwoW2dfQdKuxojFyFvmxqPKDDAEZPPpJ51wHoFzBFMM1tUBBkN15cT2GpNwKzDcjHPKJAQ6FNRgppfQytzqpq76sSeZaWAB8hhULMJCQGU57ZUjvP7xYAQwtACBnYrjdxA91XwXFbq5AsQJwAmLw6euKVWNyv11BuHrejVmnNViWg5kuZBrtgL6NtzRWHtdxngHDMtuyky3brqGXaGQhUyXrkSpeknkkHL6NLThHH5NPnfFMVPwn2xf5UM5R51X2nTBzADSVcpi4cT7i44dT7o3yRKWtKfUzZiuNyTcSSrfH8KVdLap5ZKLmdPuXM65M2Z5wJVh3Uc4iv6iZKk44RKikM7zs1hqC4sBxRwLZjxhKvvMXDjDcYFkzyUkues4y7fjdCnVTxc4vTYUqcbY2k2WMssyj9SDseVc7dVrEvWCLQtYy79mJFoz1Hmsfk5ynE28ipznzQ3yTBugLHA6j6qW3S74eY4pJ6iynFEuXT4RqqkLGFcMh3goqS7CkphUMzP4wuJyGnzqa5tCno4U3dJ2jUL7Povg8voRqYAfiHyXC8zuhn225EdmRcSnu2pAuutQVV9hN3bkjfzAFUhUWKki8SwXtFSjy6NJyrYUiaze4p7ApsjHQBCgg2zAoBaGCwVN8991Jny31B5vPyYHy1oRSE4xTVZ7tTw9FyQ7w9p1NSEF4sziCxZHh5rFWZKAajc5c7KaMNDvHPNV6S62MTFGTyuKPQNbv9yHRGN4eH6SnZGW6snvEVdYCspWZ1U3Nbxo6vCmBK95UyYpcxHgg1CCGdU4s3edju2NDQkMifyPkJdkabzzHVDhJJbChAJc1ACQfNW74VXXwrBZmeZyA2R28MBctDyXuSuffiwueys2LVowLu9wiTHUox7KQjtHK2c9howk9czzx2mpnYzkVYH42CYsWa5514EM4CJEXPJSSbXSgJJ"
+        let input = "3GimCffBLAHhXMCeNxX2nST6dBem9pbUi3KVKykW73LmewcFtMk9oh9eNPdNR2eSzNqp7Z3E21vrWUkGHzJ7w2yqDUDJ4LKo1w5D6aafZ4SUoNQyrSVxyVG3pwgoZkKXMZVixRyiPZVUpekrsTvZuUoW7mB6BQgDTXbDuMMSRoNR7yiUTKpgwTD61DLmhNZopNxfFjn4avpYPgzsTB94iWueq1yU3EoruWCUMvp6fc1CEbDrZY3pkx9oUbUaSMC37rruBKSSGHh1ZE3XK3kQXBCFraMmUQf8dagofMEg5aTnDiLAZjLyWJMdnQwW1FqKKztP8KAQS2JX8GCCfc68KB4VGf2CfEGXtaapnsNWFrHuWi7Wo5vqyuHd21zGm1u5rsiR6tKNCsFC4nzf3WUNxJNoZrDSdF9KERqhTWWmmcM4qdKRCtBWKTrs1DJD2oiK6BK9BgwoW2dfQdKuxojFyFvmxqPKDDAEZPPpJ51wHoFzBFMM1tUBBkN15cT2GpNwKzDcjHPKJAQ6FNRgppfQytzqpq76sSeZaWAB8hhULMJCQGU57ZUjvP7xYAQwtACBnYrjdxA91XwXFbq5AsQJwAmLw6euKVWNyv11BuHrejVmnNViWg5kuZBrtgL6NtzRWHtdxngHDMtuyky3brqGXaGQhUyXrkSpeknkkHL6NLThHH5NPnfFMVPwn2xf5UM5R51X2nTBzADSVcpi4cT7i44dT7o3yRKWtKfUzZiuNyTcSSrfH8KVdLap5ZKLmdPuXM65M2Z5wJVh3Uc4iv6iZKk44RKikM7zs1hqC4sBxRwLZjxhKvvMXDjDcYFkzyUkues4y7fjdCnVTxc4vTYUqcbY2k2WMssyj9SDseVc7dVrEvWCLQtYy79mJFoz1Hmsfk5ynE28ipznzQ3yTBugLHA6j6qW3S74eY4pJ6iynFEuXT4RqqkLGFcMh3goqS7CkphUMzP4wuJyGnzqa5tCno4U3dJ2jUL7Povg8voRqYAfiHyXC8zuhn225EdmRcSnu2pAuutQVV9hN3bkjfzAFUhUWKki8SwXtFSjy6NJyrYUiaze4p7ApsjHQBCgg2zAoBaGCwVN8991Jny31B5vPyYHy1oRSE4xTVZ7tTw9FyQ7w9p1NSEF4sziCxZHh5rFWZKAajc5c7KaMNDvHPNV6S62MTFGTyuKPQNbv9yHRGN4eH6SnZGW6snvEVdYCspWZ1U3Nbxo6vCmBK95UyYpcxHgg1CCGdU4s3edju2NDQkMifyPkJdkabzzHVDhJJbChAJc1ACQfNW74VXXwrBZmeZyA2R28MBctDyXuSuffiwueys2LVowLu9wiTHUox7KQjtHK2c9howk9czzx2mpnYzkVYH42CYsWa5514EM4CJEXPJSSbXSgJJ"
         
         self.measureBlock() {
             // Put the code you want to measure the time of here.

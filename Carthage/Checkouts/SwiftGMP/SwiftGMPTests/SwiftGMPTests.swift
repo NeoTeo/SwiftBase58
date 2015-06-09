@@ -24,24 +24,24 @@ class SwiftGMPTests: XCTestCase {
     
     func testExample() {
         // This is an example of a functional test case.
-        var b = IntBig(246375425603637729)//.newIntBig(58)
-        var c = IntBig(58)
-println("b: \(SwiftGMP.string(b))")
+        let b = IntBig(246375425603637729)//.newIntBig(58)
+        let c = IntBig(58)
+print("b: \(SwiftGMP.string(b))")
         
         XCTAssert(SwiftGMP.cmp(b,c) != 0, "compare error")
         
-        println("Bytes: \(SwiftGMP.bytes(b))")
+        print("Bytes: \(SwiftGMP.bytes(b))")
         
         var d = SwiftGMP.mul(b, c)
-        println("mul: \(SwiftGMP.string(d))")
+        print("mul: \(SwiftGMP.string(d))")
         
         d = SwiftGMP.add(b, c)
-        println("add: \(SwiftGMP.string(d))")
+        print("add: \(SwiftGMP.string(d))")
         var e = IntBig(69)
         e = IntBig(42)
-        println("e = \(SwiftGMP.string(e))")
-        var n = SwiftGMP.getInt64(e)
-        println("n = \(n!)")
+        print("e = \(SwiftGMP.string(e))")
+        let n = SwiftGMP.getInt64(e)
+        print("n = \(n!)")
         XCTAssert(n == 42, "Pass")
     }
     

@@ -23,20 +23,26 @@ private func trimString(theString: String) -> String? {
     
     // Clean up string to remove non-hex digits.
     // Ensure there is an even number of digits.
-    var error: NSError?
-    let regex = NSRegularExpression(pattern: "^[0-9a-f]*$", options: .CaseInsensitive, error: &error)
-    let found = regex?.firstMatchInString(trimmedString, options: nil, range: NSMakeRange(0, count(trimmedString)))
-    
-    if found == nil || found?.range.location == NSNotFound || count(trimmedString) % 2 != 0 {
+    do {
+        
+        let regex = try NSRegularExpression(pattern: "^[0-9a-f]*$", options: .CaseInsensitive)
+        let found = regex.firstMatchInString(trimmedString, options: [], range: NSMakeRange(0, trimmedString.characters.count))
+            
+        if found == nil || found?.range.location == NSNotFound || trimmedString.characters.count % 2 != 0 {
+            return nil
+        }
+        
+        return trimmedString
+        
+    } catch {
+        print("Regular expression failed \(error)")
         return nil
     }
-    
-    return trimmedString
 }
 
 public func decodeString(hexString: String) -> [uint8]? {
     
-    if let data = NSMutableData(capacity: count(hexString) / 2) {
+    if let data = NSMutableData(capacity: hexString.characters.count / 2) {
         
         for var index = hexString.startIndex; index < hexString.endIndex; index = index.successor().successor() {
             let byteString = hexString.substringWithRange(Range<String.Index>(start: index, end: index.successor().successor()))

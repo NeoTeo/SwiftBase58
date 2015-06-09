@@ -174,7 +174,8 @@
 		AB342C2A1B0DD0DF00BB8D19 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Teo;
 				TargetAttributes = {
 					AB342C321B0DD0DF00BB8D19 = {
@@ -269,6 +270,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -351,6 +353,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GMPLib",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -374,6 +377,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GMPLib",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -397,6 +401,7 @@
 					"$(inherited)",
 					/usr/local/Cellar/gmp/6.0.0a/lib,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -415,6 +420,7 @@
 					"$(inherited)",
 					/usr/local/Cellar/gmp/6.0.0a/lib,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

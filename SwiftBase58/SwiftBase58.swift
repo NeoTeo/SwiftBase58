@@ -16,18 +16,18 @@ let bigRadix = IntBig(58)
 let bigZero = IntBig(0)
 
 public func decode(b: String) -> [uint8] {
-    return decodeAlphabet(b, BTCAlphabet)
+    return decodeAlphabet(b, alphabet: BTCAlphabet)
 }
 
 public func encode(b: [uint8]) -> String {
-    return encodeAlphabet(b, BTCAlphabet)
+    return encodeAlphabet(b, alphabet: BTCAlphabet)
 }
 
 func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
     var answer = IntBig(0)
     var j = IntBig(1)
 
-    for ch in reverse(b) {
+    for ch in Array(b.characters.reverse()) {
         // Find the index of the letter ch in the alphabet.
         if let charRange = alphabet.rangeOfString(String(ch)) {
             let letterIndex = distance(alphabet.startIndex, charRange.startIndex)
@@ -47,10 +47,10 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
     
     /// Remove leading 1's
     // Find the first character that isn't 1
-    let bArr = Array(b)
-    let zChar = Array(alphabet)[0]
+    let bArr = Array(b.characters)
+    let zChar = Array(alphabet.characters)[0]
     var nz = 0
-    for nz = 0 ; nz < count(b) ; nz++ {
+    for nz = 0 ; nz < b.characters.count ; nz++ {
         if bArr[nz] != zChar { break }
     }
     

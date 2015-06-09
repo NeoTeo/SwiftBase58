@@ -161,6 +161,7 @@
 		AB342BB61B0CC6B700BB8D19 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Teo;
 				TargetAttributes = {
@@ -407,6 +408,7 @@
 				AB342BD71B0CC6B700BB8D19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AB342BD81B0CC6B700BB8D19 /* Build configuration list for PBXNativeTarget "SwiftHexTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +417,7 @@
 				AB342BDA1B0CC6B700BB8D19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

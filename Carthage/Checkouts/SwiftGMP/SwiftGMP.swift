@@ -109,7 +109,7 @@ public func neg(x: IntBig) -> IntBig {
     return c
 }
 
-public func add(x: IntBig, y: IntBig) -> IntBig {
+public func add(x: IntBig, _ y: IntBig) -> IntBig {
     var a = x
     var b = y
     var c = IntBig() //self
@@ -117,7 +117,7 @@ public func add(x: IntBig, y: IntBig) -> IntBig {
     return c
 }
 
-public func sub(x: IntBig, y: IntBig) -> IntBig {
+public func sub(x: IntBig, _ y: IntBig) -> IntBig {
     var a = x
     var b = y
     var c = IntBig() //self
@@ -125,7 +125,7 @@ public func sub(x: IntBig, y: IntBig) -> IntBig {
     return c
 }
 
-public func mul(x: IntBig, y: IntBig) -> IntBig {
+public func mul(x: IntBig, _ y: IntBig) -> IntBig {
     var a = x
     var b = y
     var c = IntBig() //self
@@ -133,7 +133,7 @@ public func mul(x: IntBig, y: IntBig) -> IntBig {
     return c
 }
 
-func inBase(number: IntBig, base: Int) -> String {
+func inBase(number: IntBig, _ base: Int) -> String {
     var ti = number.i
     let p = __gmpz_get_str(nil, CInt(base), &ti)
     let s = String.fromCString(p)
@@ -157,7 +157,7 @@ public func string(number: IntBig) -> String {
 // div and mod''. ACM Transactions on Programming Languages and
 // Systems (TOPLAS), 14(2):127-144, New York, NY, USA, 4/1992.
 // ACM press.)
-public func divMod(x: IntBig, y: IntBig, m: IntBig) -> (IntBig, IntBig) {
+public func divMod(x: IntBig, _ y: IntBig, _ m: IntBig) -> (IntBig, IntBig) {
     var xl = x
     var yl = y
     var ml = m
@@ -179,7 +179,7 @@ public func divMod(x: IntBig, y: IntBig, m: IntBig) -> (IntBig, IntBig) {
 //   -1 if x <  y
 //    0 if x == y
 //   +1 if x >  y
-public func cmp(number: IntBig, y: IntBig) -> Int {
+public func cmp(number: IntBig, _ y: IntBig) -> Int {
     var xl = number //self
     var yl = y
     var r = Int(__gmpz_cmp(&xl.i, &yl.i))
@@ -195,7 +195,7 @@ public func bytes(number: IntBig) -> [uint8] {
     var num = number//self
     let size = 1 + ((bitLen(number) + 7) / 8)
     var b = [uint8](count: size, repeatedValue: uint8(0))
-    var n = size_t(count(b))
+    var n = size_t(b.count)
     __gmpz_export(&b, &n, 1, 1, 1, 0, &num.i)
     
     return Array(b[0..<n])
