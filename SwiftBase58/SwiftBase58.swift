@@ -30,7 +30,7 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
     for ch in Array(b.characters.reverse()) {
         // Find the index of the letter ch in the alphabet.
         if let charRange = alphabet.rangeOfString(String(ch)) {
-            let letterIndex = distance(alphabet.startIndex, charRange.startIndex)
+            let letterIndex = alphabet.startIndex.distanceTo(charRange.startIndex)
             let idx = IntBig(letterIndex)
             var tmp1 = IntBig(0)
             
