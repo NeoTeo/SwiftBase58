@@ -9,28 +9,36 @@
 import Cocoa
 import XCTest
 
+@testable import SwiftHex
+
 class SwiftHexTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
+    func testHexDecode() {
+        
+        let testDecoder = { (hexString: String, hexBytes: [UInt8]) throws -> () in
+            let decStr = try SwiftHex.decodeString(hexString)
+            XCTAssert(decStr == hexBytes)
+        }
+        
+        do {
+            try testDecoder("047f0000011104d2",[4,127,0,0,1,17,4,210])
+            try testDecoder("047f0000010610e1",[4,127,0,0,1,6,16,225])
+            try testDecoder("047f0000011104d2047f0000010610e1",[4,127,0,0,1,17,4,210,4,127,0,0,1,6,16,225])
+        } catch {
+            XCTFail()
         }
     }
     
+    func testHexEncode() {
+        
+        let testEncoder = { (hexString: String, hexBytes: [UInt8]) -> () in
+            let encStr = SwiftHex.encodeToString(hexBytes)
+            XCTAssert(encStr == hexString)
+        }
+        
+        testEncoder("047f0000011104d2",[4,127,0,0,1,17,4,210])
+        testEncoder("047f0000010610e1",[4,127,0,0,1,6,16,225])
+        testEncoder("047f0000011104d2047f0000010610e1",[4,127,0,0,1,17,4,210,4,127,0,0,1,6,16,225])
+        
+    }
 }

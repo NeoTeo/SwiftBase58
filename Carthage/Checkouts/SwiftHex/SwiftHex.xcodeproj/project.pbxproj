@@ -30,7 +30,7 @@
 		AB342BCA1B0CC6B700BB8D19 /* SwiftHexTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftHexTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB342BD01B0CC6B700BB8D19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB342BD11B0CC6B700BB8D19 /* SwiftHexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHexTests.swift; sourceTree = "<group>"; };
-		AB342BDB1B0CC6CA00BB8D19 /* SwiftHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftHex.swift; sourceTree = "<group>"; };
+		AB342BDB1B0CC6CA00BB8D19 /* SwiftHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftHex.swift; path = SwiftHex/SwiftHex.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,6 @@
 		AB342BB51B0CC6B700BB8D19 = {
 			isa = PBXGroup;
 			children = (
-				AB342BDB1B0CC6CA00BB8D19 /* SwiftHex.swift */,
 				AB342BC11B0CC6B700BB8D19 /* SwiftHex */,
 				AB342BCE1B0CC6B700BB8D19 /* SwiftHexTests */,
 				AB342BC01B0CC6B700BB8D19 /* Products */,
@@ -74,6 +73,7 @@
 		AB342BC11B0CC6B700BB8D19 /* SwiftHex */ = {
 			isa = PBXGroup;
 			children = (
+				AB342BDB1B0CC6CA00BB8D19 /* SwiftHex.swift */,
 				AB342BC41B0CC6B700BB8D19 /* SwiftHex.h */,
 				AB342BC21B0CC6B700BB8D19 /* Supporting Files */,
 			);
@@ -162,7 +162,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Teo;
 				TargetAttributes = {
 					AB342BBE1B0CC6B700BB8D19 = {
@@ -257,6 +257,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -333,6 +334,7 @@
 				INFOPLIST_FILE = SwiftHex/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -352,6 +354,7 @@
 				INFOPLIST_FILE = SwiftHex/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -371,6 +374,7 @@
 				);
 				INFOPLIST_FILE = SwiftHexTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -385,6 +389,7 @@
 				);
 				INFOPLIST_FILE = SwiftHexTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

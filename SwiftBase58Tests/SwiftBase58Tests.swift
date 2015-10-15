@@ -78,15 +78,17 @@ class SwiftBase58Tests: XCTestCase {
     }
     
     func testDecodeBase58() {
-        for (testNum, (inString, outString)) in hexTests.enumerate() {
-            
-            if let stringBuf = SwiftHex.decodeString(inString) {
-            
-                let result = SwiftBase58.decode(outString)
+        do {
+            for (testNum, (inString, outString)) in hexTests.enumerate() {
+                
+                let stringBuf   = try SwiftHex.decodeString(inString)
+                let result      = SwiftBase58.decode(outString)
+                
                 XCTAssertEqual(result, stringBuf, "Base58Decode test #\(testNum+1) failed! Got: \(result) wanted: \(inString)")
-            } else {
-                XCTAssert(false, "SwiftHex.decodeString failed test#\(testNum+1)")
+                
             }
+        } catch {
+            XCTFail()
         }
     }
     
