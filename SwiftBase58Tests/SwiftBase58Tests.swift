@@ -5,6 +5,7 @@
 //  Created by Teo on 19/05/15.
 //  Copyright (c) 2015 Teo. All rights reserved.
 //
+//  Licensed under MIT See LICENCE file in the root of this project for details. 
 
 import Cocoa
 import XCTest
