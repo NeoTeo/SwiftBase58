@@ -12,10 +12,10 @@
 		AB07C0B71B0B737000C88381 /* SwiftBase58.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB07C0B61B0B737000C88381 /* SwiftBase58.swift */; };
 		AB49D8841B14745C0092BAC5 /* SwiftHex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB49D8811B14706B0092BAC5 /* SwiftHex.framework */; };
 		AB49D8851B14746E0092BAC5 /* SwiftHex.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AB49D8811B14706B0092BAC5 /* SwiftHex.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB6C4CC11C0A6A2D00CC2D74 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6C4CC01C0A6A2D00CC2D74 /* libgmp.a */; };
 		AB7A48E51B0FE0900065C0D5 /* SwiftGMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7A48E41B0FE0900065C0D5 /* SwiftGMP.framework */; };
 		AB7A48E71B0FE3250065C0D5 /* SwiftGMP.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AB7A48E41B0FE0900065C0D5 /* SwiftGMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AB7A48E91B0FE3820065C0D5 /* SwiftGMP.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AB7A48E41B0FE0900065C0D5 /* SwiftGMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AB7A48EB1B0FE5710065C0D5 /* libgmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB7A48EA1B0FE5710065C0D5 /* libgmp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +60,8 @@
 		AB07C0AC1B0B735000C88381 /* SwiftBase58Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBase58Tests.swift; sourceTree = "<group>"; };
 		AB07C0B61B0B737000C88381 /* SwiftBase58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBase58.swift; sourceTree = "<group>"; };
 		AB49D8811B14706B0092BAC5 /* SwiftHex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHex.framework; path = Carthage/Build/Mac/SwiftHex.framework; sourceTree = "<group>"; };
+		AB6C4CC01C0A6A2D00CC2D74 /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmp.a; path = Carthage/Build/Mac/SwiftGMP.framework/Versions/A/Frameworks/libgmp.a; sourceTree = "<group>"; };
 		AB7A48E41B0FE0900065C0D5 /* SwiftGMP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGMP.framework; path = Carthage/Build/Mac/SwiftGMP.framework; sourceTree = "<group>"; };
-		AB7A48EA1B0FE5710065C0D5 /* libgmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgmp.a; path = Carthage/Checkouts/SwiftGMP/GMPLib/libgmp.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB7A48EB1B0FE5710065C0D5 /* libgmp.a in Frameworks */,
+				AB6C4CC11C0A6A2D00CC2D74 /* libgmp.a in Frameworks */,
 				AB7A48E51B0FE0900065C0D5 /* SwiftGMP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,8 +89,8 @@
 		AB07C0901B0B735000C88381 = {
 			isa = PBXGroup;
 			children = (
+				AB6C4CC01C0A6A2D00CC2D74 /* libgmp.a */,
 				AB49D8811B14706B0092BAC5 /* SwiftHex.framework */,
-				AB7A48EA1B0FE5710065C0D5 /* libgmp.a */,
 				AB7A48E41B0FE0900065C0D5 /* SwiftGMP.framework */,
 				AB07C09C1B0B735000C88381 /* SwiftBase58 */,
 				AB07C0A91B0B735000C88381 /* SwiftBase58Tests */,
@@ -361,6 +361,7 @@
 		AB07C0B11B0B735000C88381 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -375,7 +376,7 @@
 				INFOPLIST_FILE = SwiftBase58/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac/SwiftGMP.framework/Versions/A/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -386,6 +387,7 @@
 		AB07C0B21B0B735000C88381 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -400,7 +402,7 @@
 				INFOPLIST_FILE = SwiftBase58/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac/SwiftGMP.framework/Versions/A/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Terminal-Glow.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
