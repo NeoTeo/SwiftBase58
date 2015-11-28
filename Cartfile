@@ -1,2 +1,2 @@
-github "NeoTeo/SwiftGMP"
+github "NeoTeo/SwiftGMP" "include-lib"
 github "NeoTeo/SwiftHex"
