@@ -1,2 +1,2 @@
 github "NeoTeo/SwiftGMP" "xplatform"
-github "NeoTeo/SwiftHex"
+github "NeoTeo/SwiftHex" "xplatform"
