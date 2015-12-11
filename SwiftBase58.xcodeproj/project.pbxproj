@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		AB07C0AD1B0B735000C88381 /* SwiftBase58Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB07C0AC1B0B735000C88381 /* SwiftBase58Tests.swift */; };
 		AB07C0B71B0B737000C88381 /* SwiftBase58.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB07C0B61B0B737000C88381 /* SwiftBase58.swift */; };
-		AB7258311C1B22BC00A226A5 /* SwiftGMP.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AB72582F1C1B22BC00A226A5 /* SwiftGMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AB7258321C1B22BC00A226A5 /* SwiftHex.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AB7258301C1B22BC00A226A5 /* SwiftHex.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,17 +28,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AB961F9D1C1AEF0600C60DB3 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				AB7258311C1B22BC00A226A5 /* SwiftGMP.framework in CopyFiles */,
-				AB7258321C1B22BC00A226A5 /* SwiftHex.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +138,7 @@
 				AB07C0971B0B735000C88381 /* Headers */,
 				AB07C0981B0B735000C88381 /* Resources */,
 				AB7A48E61B0FE1FD0065C0D5 /* CopyFiles */,
+				AB7258341C1B24CA00A226A5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -168,7 +156,7 @@
 				AB07C0A11B0B735000C88381 /* Sources */,
 				AB07C0A21B0B735000C88381 /* Frameworks */,
 				AB07C0A31B0B735000C88381 /* Resources */,
-				AB961F9D1C1AEF0600C60DB3 /* CopyFiles */,
+				AB7258351C1B291000A226A5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -232,6 +220,35 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AB7258341C1B24CA00A226A5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+		AB7258351C1B291000A226A5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# env # Uncomment this to see all the environment variables.\n\nFRAMEWORK_TARGET_PATH=$TARGET_BUILD_DIR/$FRAMEWORKS_FOLDER_PATH\nCARTHAGE_BUILD_PATH=$SRCROOT/Carthage/Build\n\n# Make sure the Frameworks dir exists.\nmkdir -p $FRAMEWORK_TARGET_PATH\n\nif [ \"$PLATFORM_NAME\" == \"macosx\" ]; then\n    CARTHAGE_SOURCE_PATH=\"$CARTHAGE_BUILD_PATH/Mac\"\nelse\n    if [ \"$PLATFORM_NAME\" == \"iphoneos\" ] || [ \"$PLATFORM_NAME\" == \"iphonesimulator\" ]; then\n        CARTHAGE_SOURCE_PATH=\"$CARTHAGE_BUILD_PATH/iOS\"\n    else\n        return\n    fi\nfi\n\ncp -r $CARTHAGE_SOURCE_PATH/SwiftGMP.framework $FRAMEWORK_TARGET_PATH/SwiftGMP.framework\ncp -r $CARTHAGE_SOURCE_PATH/SwiftHex.framework $FRAMEWORK_TARGET_PATH/SwiftHex.framework";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AB07C0951B0B735000C88381 /* Sources */ = {
