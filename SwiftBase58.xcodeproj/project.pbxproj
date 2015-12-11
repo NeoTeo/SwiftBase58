@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		AB07C0AD1B0B735000C88381 /* SwiftBase58Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB07C0AC1B0B735000C88381 /* SwiftBase58Tests.swift */; };
 		AB07C0B71B0B737000C88381 /* SwiftBase58.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB07C0B61B0B737000C88381 /* SwiftBase58.swift */; };
-		AB5D17F81C19CE53001589C1 /* SwiftGMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5D17F71C19CE53001589C1 /* SwiftGMP.framework */; };
-		AB961F9B1C1AECFD00C60DB3 /* SwiftHex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB961F9A1C1AECFD00C60DB3 /* SwiftHex.framework */; };
-		AB961F9E1C1AEF0F00C60DB3 /* SwiftHex.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AB961F9A1C1AECFD00C60DB3 /* SwiftHex.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AB961F9F1C1AEF0F00C60DB3 /* SwiftGMP.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AB5D17F71C19CE53001589C1 /* SwiftGMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB7258311C1B22BC00A226A5 /* SwiftGMP.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AB72582F1C1B22BC00A226A5 /* SwiftGMP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB7258321C1B22BC00A226A5 /* SwiftHex.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AB7258301C1B22BC00A226A5 /* SwiftHex.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,8 +39,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AB961F9E1C1AEF0F00C60DB3 /* SwiftHex.framework in CopyFiles */,
-				AB961F9F1C1AEF0F00C60DB3 /* SwiftGMP.framework in CopyFiles */,
+				AB7258311C1B22BC00A226A5 /* SwiftGMP.framework in CopyFiles */,
+				AB7258321C1B22BC00A226A5 /* SwiftHex.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +53,8 @@
 		AB07C0AB1B0B735000C88381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB07C0AC1B0B735000C88381 /* SwiftBase58Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftBase58Tests.swift; sourceTree = "<group>"; };
 		AB07C0B61B0B737000C88381 /* SwiftBase58.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftBase58.swift; sourceTree = "<group>"; };
-		AB5D17F71C19CE53001589C1 /* SwiftGMP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGMP.framework; path = Carthage/Build/iOS/SwiftGMP.framework; sourceTree = "<group>"; };
-		AB961F9A1C1AECFD00C60DB3 /* SwiftHex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHex.framework; path = Carthage/Build/iOS/SwiftHex.framework; sourceTree = "<group>"; };
+		AB72582F1C1B22BC00A226A5 /* SwiftGMP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGMP.framework; path = Carthage/Build/Mac/SwiftGMP.framework; sourceTree = "<group>"; };
+		AB7258301C1B22BC00A226A5 /* SwiftHex.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHex.framework; path = Carthage/Build/Mac/SwiftHex.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB5D17F81C19CE53001589C1 /* SwiftGMP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB961F9B1C1AECFD00C60DB3 /* SwiftHex.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,8 +78,8 @@
 		AB07C0901B0B735000C88381 = {
 			isa = PBXGroup;
 			children = (
-				AB961F9A1C1AECFD00C60DB3 /* SwiftHex.framework */,
-				AB5D17F71C19CE53001589C1 /* SwiftGMP.framework */,
+				AB72582F1C1B22BC00A226A5 /* SwiftGMP.framework */,
+				AB7258301C1B22BC00A226A5 /* SwiftHex.framework */,
 				AB07C09C1B0B735000C88381 /* SwiftBase58 */,
 				AB07C0A91B0B735000C88381 /* SwiftBase58Tests */,
 				AB07C09B1B0B735000C88381 /* Products */,
@@ -287,6 +283,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -336,6 +333,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -367,6 +365,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = SwiftBase58/Info.plist;
 				INSTALL_PATH = "@rpath";
@@ -392,6 +392,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = SwiftBase58/Info.plist;
 				INSTALL_PATH = "@rpath";
@@ -408,10 +410,9 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -429,10 +430,9 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = "$(PROJECT_DIR)/Carthage/Build/iOS";
+				"FRAMEWORK_SEARCH_PATHS[sdk=macosx*]" = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				INFOPLIST_FILE = SwiftBase58Tests/Info.plist;
 				LD_DYLIB_INSTALL_NAME = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks @loader_path/../Frameworks";
