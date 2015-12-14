@@ -246,7 +246,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# env # Uncomment this to see all the environment variables.\n\nFRAMEWORK_TARGET_PATH=$TARGET_BUILD_DIR/$FRAMEWORKS_FOLDER_PATH\nCARTHAGE_BUILD_PATH=$SRCROOT/Carthage/Build\n\n# Make sure the Frameworks dir exists.\nmkdir -p $FRAMEWORK_TARGET_PATH\n\nif [ \"$PLATFORM_NAME\" == \"macosx\" ]; then\n    CARTHAGE_SOURCE_PATH=\"$CARTHAGE_BUILD_PATH/Mac\"\nelse\n    if [ \"$PLATFORM_NAME\" == \"iphoneos\" ] || [ \"$PLATFORM_NAME\" == \"iphonesimulator\" ]; then\n        CARTHAGE_SOURCE_PATH=\"$CARTHAGE_BUILD_PATH/iOS\"\n    else\n        return\n    fi\nfi\n\ncp -r $CARTHAGE_SOURCE_PATH/SwiftGMP.framework $FRAMEWORK_TARGET_PATH/SwiftGMP.framework\ncp -r $CARTHAGE_SOURCE_PATH/SwiftHex.framework $FRAMEWORK_TARGET_PATH/SwiftHex.framework";
+			shellScript = "# env # Uncomment this to see all the environment variables.\n\nFRAMEWORK_TARGET_PATH=$TARGET_BUILD_DIR/$FRAMEWORKS_FOLDER_PATH\nCARTHAGE_BUILD_PATH=$SRCROOT/Carthage/Build\n\n# Make sure the Frameworks dir exists.\nmkdir -p $FRAMEWORK_TARGET_PATH\n\nif [ \"$PLATFORM_NAME\" == \"macosx\" ]; then\n    CARTHAGE_SOURCE_PATH=\"$CARTHAGE_BUILD_PATH/Mac\"\nelse\n    if [ \"$PLATFORM_NAME\" == \"iphoneos\" ] || [ \"$PLATFORM_NAME\" == \"iphonesimulator\" ]; then\n        CARTHAGE_SOURCE_PATH=\"$CARTHAGE_BUILD_PATH/iOS\"\n    else\n        echo \"Unknown platform name $PLATFORM_NAME\"\n        exit 1\n    fi\nfi\necho $CARTHAGE_SOURCE_PATH\n\ncp -r $CARTHAGE_SOURCE_PATH/SwiftGMP.framework $FRAMEWORK_TARGET_PATH/SwiftGMP.framework\ncp -r $CARTHAGE_SOURCE_PATH/SwiftHex.framework $FRAMEWORK_TARGET_PATH/SwiftHex.framework\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
