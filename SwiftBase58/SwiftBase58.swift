@@ -16,15 +16,15 @@ let BTCAlphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
 let bigRadix = IntBig(58)
 let bigZero = IntBig(0)
 
-public func decode(b: String) -> [uint8] {
+public func decode(b: String) -> [UInt8] {
     return decodeAlphabet(b, alphabet: BTCAlphabet)
 }
 
-public func encode(b: [uint8]) -> String {
+public func encode(b: [UInt8]) -> String {
     return encodeAlphabet(b, alphabet: BTCAlphabet)
 }
 
-func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
+func decodeAlphabet(b: String, alphabet: String) -> [UInt8] {
     var answer = IntBig(0)
     var j = IntBig(1)
 
@@ -56,17 +56,17 @@ func decodeAlphabet(b: String, alphabet: String) -> [uint8] {
     }
     
     let tmpval = SwiftGMP.bytes(answer)
-    var val = [uint8](count: nz, repeatedValue: 0)
+    var val = [UInt8](count: nz, repeatedValue: 0)
     val += tmpval
 
     return val
 }
 
-func encodeAlphabet(byteSlice: [uint8], alphabet: String) -> String {
+func encodeAlphabet(byteSlice: [UInt8], alphabet: String) -> String {
     var bytesAsIntBig = IntBig(byteSlice)
-    let byteAlphabet = [uint8](alphabet.utf8)
+    let byteAlphabet = [UInt8](alphabet.utf8)
     
-    var answer = [uint8]()//(count: byteSlice.count*136/100, repeatedValue: 0)
+    var answer = [UInt8]()//(count: byteSlice.count*136/100, repeatedValue: 0)
     
     while SwiftGMP.cmp(bytesAsIntBig, bigZero) > 0 {
         let mod = IntBig()
