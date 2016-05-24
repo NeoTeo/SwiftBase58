@@ -51,8 +51,10 @@ func decodeAlphabet(b: String, alphabet: String) -> [UInt8] {
     let bArr = Array(b.characters)
     let zChar = Array(alphabet.characters)[0]
     var nz = 0
-    for nz = 0 ; nz < b.characters.count ; nz++ {
+    
+    for _ in 0..<b.characters.count {
         if bArr[nz] != zChar { break }
+        nz += 1
     }
     
     let tmpval = SwiftGMP.bytes(answer)
