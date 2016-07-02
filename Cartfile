@@ -1,2 +1,2 @@
-github "NeoTeo/SwiftGMP" == 0.4.1
-github "NeoTeo/SwiftHex" == 0.2.6
+github "NeoTeo/SwiftGMP" "swift3"
+github "NeoTeo/SwiftHex" "swift3"

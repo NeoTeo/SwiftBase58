@@ -16,22 +16,22 @@ let BTCAlphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
 let bigRadix = IntBig(58)
 let bigZero = IntBig(0)
 
-public func decode(b: String) -> [UInt8] {
+public func decode(_ b: String) -> [UInt8] {
     return decodeAlphabet(b, alphabet: BTCAlphabet)
 }
 
-public func encode(b: [UInt8]) -> String {
+public func encode(_ b: [UInt8]) -> String {
     return encodeAlphabet(b, alphabet: BTCAlphabet)
 }
 
-func decodeAlphabet(b: String, alphabet: String) -> [UInt8] {
+func decodeAlphabet(_ b: String, alphabet: String) -> [UInt8] {
     var answer = IntBig(0)
     var j = IntBig(1)
 
-    for ch in Array(b.characters.reverse()) {
+    for ch in Array(b.characters.reversed()) {
         // Find the index of the letter ch in the alphabet.
-        if let charRange = alphabet.rangeOfString(String(ch)) {
-            let letterIndex = alphabet.startIndex.distanceTo(charRange.startIndex)
+        if let charRange = alphabet.range(of: String(ch)) {
+            let letterIndex = alphabet.characters.distance(from: alphabet.startIndex, to: charRange.lowerBound)
             let idx = IntBig(letterIndex)
             var tmp1 = IntBig(0)
             
@@ -45,26 +45,28 @@ func decodeAlphabet(b: String, alphabet: String) -> [UInt8] {
             return []
         }
     }
-    
+
+
     /// Remove leading 1's
     // Find the first character that isn't 1
     let bArr = Array(b.characters)
-    let zChar = Array(alphabet.characters)[0]
+    let zChar = Array(alphabet.characters).first
     var nz = 0
     
-    for _ in 0..<b.characters.count {
+    for _ in 0 ..< b.characters.count {
         if bArr[nz] != zChar { break }
         nz += 1
     }
     
     let tmpval = SwiftGMP.bytes(answer)
-    var val = [UInt8](count: nz, repeatedValue: 0)
+    var val = [UInt8](repeating: 0, count: nz)
     val += tmpval
-
     return val
+
 }
 
-func encodeAlphabet(byteSlice: [UInt8], alphabet: String) -> String {
+
+func encodeAlphabet(_ byteSlice: [UInt8], alphabet: String) -> String {
     var bytesAsIntBig = IntBig(byteSlice)
     let byteAlphabet = [UInt8](alphabet.utf8)
     
@@ -77,14 +79,14 @@ func encodeAlphabet(byteSlice: [UInt8], alphabet: String) -> String {
         bytesAsIntBig = quotient
         
         // Make the String into an array of characters.
-        answer.insert(byteAlphabet[SwiftGMP.getInt64(modulus)!], atIndex: 0)
+        answer.insert(byteAlphabet[SwiftGMP.getInt64(modulus)!], at: 0)
     }
     
     // leading zero bytes
     for ch in byteSlice {
         if ch != 0 { break }
-        answer.insert(byteAlphabet[0], atIndex: 0)
+        answer.insert(byteAlphabet[0], at: 0)
     }
     
-    return String(bytes: answer, encoding: NSUTF8StringEncoding)!
+    return String(bytes: answer, encoding: String.Encoding.utf8)!
 }
