@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "GMPLib",
+        "repositoryURL": "https://github.com/NeoTeo/GMPLib",
+        "state": {
+          "branch": null,
+          "revision": "866d3934f14d0e005a6ad030ecf2f0a42eade160",
+          "version": "0.1.3"
+        }
+      },
+      {
+        "package": "SwiftGMP",
+        "repositoryURL": "https://github.com/NeoTeo/SwiftGMP.git",
+        "state": {
+          "branch": "SPM",
+          "revision": "1160756baecd74d9ebddce5b466f03babe688987",
+          "version": null
+        }
+      },
+      {
+        "package": "SwiftHex",
+        "repositoryURL": "https://github.com/NeoTeo/SwiftHex",
+        "state": {
+          "branch": "SPM",
+          "revision": "b7866a4e3cdb2abcc6ff8e43dbf64108fb5f529b",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
