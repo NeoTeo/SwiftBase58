@@ -28,10 +28,10 @@ func decodeAlphabet(_ b: String, alphabet: String) -> [UInt8] {
     var answer = GMPInteger(0)
     var j = GMPInteger(1)
 
-    for ch in Array(b.characters.reversed()) {
+    for ch in Array(b.reversed()) {
         // Find the index of the letter ch in the alphabet.
         if let charRange = alphabet.range(of: String(ch)) {
-            let letterIndex = alphabet.characters.distance(from: alphabet.startIndex, to: charRange.lowerBound)
+            let letterIndex = alphabet.distance(from: alphabet.startIndex, to: charRange.lowerBound)
             let idx = GMPInteger(letterIndex)
             var tmp1 = GMPInteger(0)
             
@@ -49,11 +49,11 @@ func decodeAlphabet(_ b: String, alphabet: String) -> [UInt8] {
 
     /// Remove leading 1's
     // Find the first character that isn't 1
-    let bArr = Array(b.characters)
-    let zChar = Array(alphabet.characters).first
+    let bArr = Array(b)
+    let zChar = Array(alphabet).first
     var nz = 0
     
-    for _ in 0 ..< b.characters.count {
+    for _ in 0 ..< b.count {
         if bArr[nz] != zChar { break }
         nz += 1
     }
